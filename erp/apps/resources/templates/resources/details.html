@@ -1,0 +1,14 @@
+{% extends 'index.html' %}
+{% load i18n %}
+
+{% block PageTitle %}
+    {{ resource.first_name }} {{ resource.last_name }}
+{% endblock %}
+
+{% block Content %}
+
+    {% include 'resources/blocks/allocations.html' %}
+
+    {% include 'resources/blocks/holidays.html' %}
+
+{% endblock %}

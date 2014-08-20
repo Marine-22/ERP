@@ -1,0 +1,31 @@
+[
+ {
+  "pk": 1, 
+  "model": "simplewiki.article", 
+  "fields": {
+   "locked": false, 
+   "title": "Main Page", 
+   "current_revision": 1, 
+   "created_by": 1, 
+   "created_on": "2011-11-28 11:07:36", 
+   "related": [], 
+   "modified_on": "2011-11-28 11:07:36", 
+   "slug": "mainpage", 
+   "permissions": null
+  }
+ }, 
+ {
+  "pk": 1, 
+  "model": "simplewiki.revision", 
+  "fields": {
+   "contents_parsed": "<h1 id=\"django-simple-wiki-fork\">django-simple-wiki-fork</h1>\n<p>This is a fork of <strong>django-simple-wiki</strong>.</p>\n<p><a href=\"https://github.com/hgdeoro/django-simple-wiki-fork\">Git repo</a>.</p>\n<p><a href=\"https://code.google.com/p/django-simple-wiki/\">Original project</a>.</p>\n<p>This wiki uses the <a href=\"http://daringfireball.net/projects/markdown/\">Markdown</a> format.</p>", 
+   "counter": 1, 
+   "previous_revision": null, 
+   "revision_text": null, 
+   "revision_date": "2011-11-28 11:07:36", 
+   "revision_user": 1, 
+   "article": 1, 
+   "contents": "django-simple-wiki-fork\r\n==================================================\r\n\r\nThis is a fork of __django-simple-wiki__.\r\n\r\n[Git repo](https://github.com/hgdeoro/django-simple-wiki-fork).\r\n\r\n[Original project](https://code.google.com/p/django-simple-wiki/).\r\n\r\nThis wiki uses the [Markdown](http://daringfireball.net/projects/markdown/) format.\r\n"
+  }
+ }
+]

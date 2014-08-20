@@ -1,0 +1,32 @@
+{% load i18n %}
+
+<div class="smalldd">
+    <span class="goTo"><img src="/assets/images/icons/light/user.png" alt="" />{% trans 'Click to open navigation' %}</span>
+
+    <ul class="smallDropdown">
+
+        <li><a href="{% url dashboard %}" title=""><img src="/assets/images/icons/light/home.png" alt="" />{% trans 'Dashboard' %}</a></li>
+
+        {% for group in user.groups.all %}
+            {% if group.name == 'Finance manager' or group.name == 'Office manager' or group.name == 'Country manager' or user.is_superuser %}
+                <li><a href="#" title="" class="exp"><img src="/assets/images/icons/light/pencil.png" alt="" />{% trans 'Resources' %}</a>
+                    <ul>
+                        <li><a href="{% url resource_list %}" title="">{% trans 'List of resources' %}</a></li>
+                    </ul>
+                </li>
+            {% endif %}
+        {% endfor %}
+
+        {% for group in user.groups.all %}
+            {% if group.name == 'Finance manager' or group.name == 'Office manager' or group.name == 'Country manager' or user.is_superuser %}
+                <li><a href="tables.html" title="" class="exp"><img src="/assets/images/icons/light/frames.png" alt="" />{% trans 'Partners' %}</a>
+                    <ul>
+                        <li><a href="{% url partner_create %}" title="">{% trans 'Add partner' %}</a></li>
+                        <li><a href="{% url partner_list %}" title="">{% trans 'List of partners' %}</a></li>
+                    </ul>
+                </li>
+            {% endif %}
+        {% endfor %}
+
+    </ul>
+</div>

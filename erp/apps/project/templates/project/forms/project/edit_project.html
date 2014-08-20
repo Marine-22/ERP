@@ -1,0 +1,42 @@
+{% extends 'index.html' %}
+{% load i18n %}
+
+{% block pageHead %}
+    <script type="text/javascript">
+        $(function()    {
+            $('#form').validate('{% url project_form_validate %}', {type: 'growl', fields: ['Name'], dom: $('#id_Name'), event: 'submit'});
+            $('#form').validate('{% url project_form_validate %}', {type: 'growl'});
+        });
+    </script>
+{% endblock %}
+
+{% block Content %}
+    <div class="widget">
+        <form action="{% url project_edit project.id %}" class="form ts" method="POST" id="form">
+            {% csrf_token %}
+            <fieldset>
+
+                <div class="title"><img src="/assets/images/icons/dark/list.png" alt="" class="titleIcon"><h6>{% trans 'Edit project' %}</h6></div>
+
+                {% for field in form %}
+                    <div class="formRow">
+                        <label>{{ field.label }}</label>
+                        <div class="formRight">
+                            {{ field.errors }}
+                            {{ field }}
+                            {% if field.help_text %}
+                                <span class="formNote">
+                                {{ field.help_text }}
+                            </span>
+                            {% endif %}
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                {% endfor %}
+
+                <div class="formSubmit"><input type="submit" value="{% trans 'Save project' %}" class="redB"></div>
+
+            </fieldset>
+        </form>
+    </div>
+{% endblock %}

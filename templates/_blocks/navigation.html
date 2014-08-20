@@ -1,0 +1,92 @@
+{% load i18n %}
+{% load activelink %}
+
+    <li class="dash">
+        <a href="{% url dashboard %}" title="" class="{% ifactive "dashboard" %}active{% endifactive %}">
+            <span>{% trans 'Dashboard' %}</span>
+        </a>
+    </li>
+
+    <!--
+
+    {% for group in user.groups.all %}
+        {% if group.name == 'Finance manager' or group.name == 'Office manager' or group.name == 'Country manager' or user.is_superuser %}
+            <li class="ui">
+                <a href="#" title="" class="{% ifstartswith "resource_list" %}active{% endifstartswith %} exp" {% ifstartswith "resource_list" %}id="current"{% endifstartswith %}>
+                    <span>{% trans 'Resources' %}</span>
+                </a>
+                <ul class="sub">
+                    <li {% ifactive "resource_list" %}class="this"{% endifactive %}><a href="{% url resource_list %}" title="">{% trans 'List of resources' %}</a></li>
+                </ul>
+            </li>
+        {% endif %}
+    {% endfor %}
+
+    -->
+
+    {% for group in user.groups.all %}
+        {% if group.name == 'Finance manager' or group.name == 'Office manager' or group.name == 'Country manager' or user.is_superuser %}
+            <li class="typo">
+                <a href="#" title="" class="{% ifstartswith "partner_list" %}active{% endifstartswith %} exp" {% ifstartswith "partner_list" %}id="current"{% endifstartswith %}>
+                    <span>{% trans 'Partners' %}</span>
+                </a>
+                <ul class="sub">
+                    <li><a href="{% url partner_create %}">{% trans 'Add partner' %}</a></li>
+                    <li><a href="{% url partner_list %}">{% trans 'List of partners' %}</a></li>
+                </ul>
+            </li>
+        {% endif %}
+    {% endfor %}
+
+
+
+    <li class="widgets">
+        <a href="#" title="" class="{% ifstartswith "project_list" %}active{% endifstartswith %} exp" {% ifstartswith "project_list" %}id="current"{% endifstartswith %}>
+            <span>{% trans 'Projects' %}</span>
+        </a>
+        <ul class="sub">
+            {% for group in user.groups.all %}
+                {% if group.name == 'Finance manager' or group.name == 'Office manager' or group.name == 'Country manager' or user.is_superuser %}
+                    <li><a href="{% url project_create %}" title="">{% trans 'Add project' %}</a></li>
+                    <li><a href="{% url project_list 'active' %}" title="">{% trans 'Active projects' %}</a></li>
+                    <li><a href="{% url project_list 'finished' %}" title="">{% trans 'Finished projects' %}</a></li>
+                {% endif %}
+            {% endfor %}
+            <li><a href="{% url project_list 'my_projects' %}" title="">{% trans 'My projects' %}</a></li>
+        </ul>
+    </li>
+
+    {% for group in user.groups.all %}
+        {% if group.name == 'Finance manager' or group.name == 'Office manager' or group.name == 'Country manager' or user.is_superuser %}
+            <li class="charts">
+                <a href="#" title="" class="{% ifstartswith "company_dashboard" %}active{% endifstartswith %} exp" {% ifstartswith "company_dashboard" %}id="current"{% endifstartswith %}>
+                    <span>{% trans 'Reporting' %}</span>
+                </a>
+                <ul class="sub">
+                    <li {% ifactive "internal_summary_report" %}class="this"{% endifactive %}><a href="{% url internal_summary_report %}" title="">{% trans 'Internal reporting' %}</a></li>
+                    <li {% ifactive "holiday_report" %}class="this"{% endifactive %}><a href="{% url holiday_report %}" title="">{% trans 'Holiday reporting' %}</a></li>
+                </ul>
+            </li>
+        {% endif %}
+    {% endfor %}
+
+    {% for group in user.groups.all %}
+        {% if group.name == 'Finance manager' or group.name == 'Office manager' or group.name == 'Country manager' or user.is_superuser %}
+            <li class="tables">
+                <a href="#" title="" class="{% ifstartswith "timesheet" %}active{% endifstartswith %} exp" {% ifstartswith "timesheet" %}id="current"{% endifstartswith %}>
+                    <span>{% trans 'Timesheet' %}</span>
+                </a>
+                <ul class="sub">
+                    <li {% ifactive "timesheet" %}class="this"{% endifactive %}><a href="{% url timesheet %}" title="">{% trans 'My timesheet' %}</a></li>
+                    <li {% ifactive "timesheet" %}class="this"{% endifactive %}><a href="{% url approveTimesheet %}" title="">{% trans 'Timesheet approval' %}</a></li>
+                    <li {% ifactive "timesheet" %}class="this"{% endifactive %}><a href="{% url timesheet_all %}" title="">{% trans 'Comapny summary' %}</a></li>
+                </ul>
+            </li>
+        {% else %}
+            <li class="tables">
+                <a href="{% url timesheet %}" title="" class="{% ifactive "timesheet" %}active{% endifactive %}"><span>{% trans 'Timesheet' %}</span></a>
+            </li>
+        {% endif %}
+    {% endfor %}
+
+</ul>

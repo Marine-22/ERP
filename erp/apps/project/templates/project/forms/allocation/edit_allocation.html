@@ -1,0 +1,106 @@
+{% load i18n %}
+
+<script>
+    $(document).ready(function() {
+
+        var input = $('#id_FixedPrice');
+        var $radios = $('input:radio[name=type]');
+        if (input.val().length > 0)
+        {
+            $('.time_and_material').hide();
+            $radios.filter('[value=fixed_price]').attr('checked', true);
+        }
+        else
+        {
+            $('.fixed_price').hide();
+            $radios.filter('[value=time_and_material]').attr('checked', true);
+        }
+
+
+        $('.radio').change(function(){
+            var a = $(this).attr('id');
+            if(a == 'fixed_price')
+            {
+                $('.time_and_material > div > input').val('');
+                $('.time_and_material').hide();
+                $('.fixed_price').show();
+                $('*').colorbox.resize();
+            }
+            if(a == 'time_and_material')
+            {
+                $('.time_and_material').show();
+                $('.fixed_price > div > input').val('');
+                $('.fixed_price').hide();
+                $('*').colorbox.resize();
+            }
+        })
+    });
+</script>
+
+<div class="wrapper" style="margin:0 !important; padding:0 !important;">
+
+    <div class="widget" style="margin:0 !important; padding:0 !important;">
+        <!-- Form -->
+        <form action="{% url edit_allocation allocation.id %}" class="form" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <fieldset>
+                <div class="title"><img src="/assets/images/icons/dark/list.png" alt="" class="titleIcon" /><h6>{% trans 'Add new project phase' %}</h6></div>
+
+                <div class="formRow">
+                    <label>{% trans 'Resource' %}</label>
+                    <div class="formRight" style="width:70%;">{{ form.Resource }}</div>
+                    <div class="clear"></div>
+                </div>
+
+                <div class="formRow">
+                    <label>{% trans 'Duration' %}</label>
+                    <div class="formRight" style="width:70%;">
+                        <span class="oneTwo">{{ form.Start }}</span>
+                        <span class="oneTwo">{{ form.End }}</span>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+
+                <div class="formRow">
+                    <label>{% trans 'Payment type' %}</label>
+                    <div class="formRight" style="width:70%;">
+                        <input name="type" class="radio" id="time_and_material" value="time_and_material" type="radio">
+                        <label for="time_and_material">{% trans 'Time and material' %}</label>
+
+                        <input name="type" class="radio" id="fixed_price" value="fixed_price" type="radio">
+                        <label for="fixed_price">{% trans 'Fixed price' %}</label>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+
+                <!-- Time and material form -->
+                <div class="formRow time_and_material">
+                    <label>{% trans 'Mandays' %}</label>
+                    <div class="formRight" style="width:70%;">{{ form.Mandays }}</div>
+                    <div class="clear"></div>
+                </div>
+
+                <div class="formRow time_and_material">
+                    <label>{% trans 'Price per manday' %}</label>
+                    <div class="formRight" style="width:70%;">{{ form.HourSale }}</div>
+                    <div class="clear"></div>
+                </div>
+                <!-- EO Time and material form -->
+
+                <!-- Fixed price form -->
+                <div class="formRow fixed_price">
+                    <label>{% trans 'Fixed price' %}</label>
+                    <div class="formRight" style="width:70%;">{{ form.FixedPrice }}</div>
+                    <div class="clear"></div>
+                </div>
+                <!-- EO Fixed price form -->
+
+                <div class="formSubmit">
+                    <input type="submit" value="{% trans 'Submit' %}" class="blueB">
+                </div>
+
+            </fieldset>
+        </form>
+    </div>
+
+</div>

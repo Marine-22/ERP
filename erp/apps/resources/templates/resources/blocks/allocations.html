@@ -1,0 +1,80 @@
+{% load i18n %}
+
+<div class="widget rightTabs">
+    <div class="title"><img src="/assets/images/icons/dark/frames.png" alt="" class="titleIcon" /><h6>{% trans 'Allocations' %}</h6></div>
+    <ul class="tabs">
+        <li><a href="#tab3">{% trans 'Active allocations' %}</a></li>
+        <li><a href="#tab4">{% trans 'Past allocations' %}</a></li>
+        <li><a href="#tab5">{% trans 'Project management' %}</a></li>
+    </ul>
+
+    <div class="tab_container">
+        <div id="tab3" class="tab_content np">
+            {% if current_allocations %}
+                <table cellpadding="0" cellspacing="0" width="100%" class="sTable">
+                    <thead>
+                    <tr>
+                        <td>{% trans 'Project' %}</td>
+                        <td>{% trans 'Duration' %}</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for allocation in current_allocations %}
+                        <tr>
+                            <td>{{ allocation.Project }}</td>
+                            <td>{{ allocation.Start|date:'d.m.Y' }}&ndash;{{ allocation.End|date:'d.m.Y' }}</td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <div class="body">
+                    {% trans 'Currently this resource is not allocated on any project' %}
+                </div>
+            {% endif %}
+        </div>
+        <div id="tab4" class="tab_content np">
+            <table cellpadding="0" cellspacing="0" width="100%" class="sTable">
+                <thead>
+                <tr>
+                    <td>{% trans 'Project' %}</td>
+                    <td>{% trans 'Duration' %}</td>
+                </tr>
+                </thead>
+                <tbody>
+                {% for allocation in past_allocations %}
+                    <tr>
+                        <td>{{ allocation.Project }}</td>
+                        <td>{{ allocation.Start|date:'d.m.Y' }}&ndash;{{ allocation.End|date:'d.m.Y' }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div id="tab5" class="tab_content np">
+            {% if project_management %}
+                <table cellpadding="0" cellspacing="0" width="100%" class="sTable">
+                    <thead>
+                    <tr>
+                        <td>{% trans 'Project' %}</td>
+                        <td>{% trans 'Duration' %}</td>
+                    </tr>
+                    </thead>
+                    <body>
+                    {% for project in project_management %}
+                        <tr>
+                            <td>{{ project.Name }}</td>
+                            <td>{{ project.Start|date:'d.m.Y' }}&ndash;{{ project.End|date:'d.m.Y' }}</td>
+                        </tr>
+                    {% endfor %}
+                    </body>
+                </table>
+            {% else %}
+                <div class="body">
+                    {% trans 'Currently this resource is not managing any project' %}
+                </div>
+            {% endif %}
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>

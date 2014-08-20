@@ -1,0 +1,41 @@
+{% load i18n %}
+
+<div class="wrapper" style="margin:0 !important; padding:0 !important;">
+
+    <div class="widget" style="margin:0 !important; padding:0 !important;">
+        <!-- Form -->
+        <form action="{% url project_edit_phase phase.id %}" class="form ts" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <fieldset>
+                <div class="title"><img src="/assets/images/icons/dark/list.png" alt="" class="titleIcon" /><h6>{% trans 'Add new project phase' %}</h6></div>
+
+                <div class="formRow">
+                    <label>{% trans 'Phase Name' %}</label>
+                    <div class="formRight" style="width:70%;">{{ form.Name }}</div>
+                    <div class="clear"></div>
+                </div>
+
+                <div class="formRow">
+                    <label>{% trans 'Duration' %}</label>
+                    <div class="formRight" style="width:70%;">
+                        <span class="oneTwo">{{ form.Start }}</span>
+                        <span class="oneTwo">{{ form.End }}</span>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+
+                <div class="formRow">
+                    <label>{% trans 'Phase Price' %}</label>
+                    <div class="formRight" style="width:70%;">{{ form.Price }}</div>
+                    <div class="clear"></div>
+                </div>
+
+                <div class="formSubmit">
+                    <input type="submit" value="{% trans 'Submit' %}" class="blueB">
+                </div>
+
+            </fieldset>
+        </form>
+    </div>
+
+</div>

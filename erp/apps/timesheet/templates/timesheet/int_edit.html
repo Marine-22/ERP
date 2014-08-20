@@ -1,0 +1,39 @@
+{% load i18n %}
+
+<div class="widget" style="margin-top:0">
+    <div class="title"><img src="/assets/images/icons/dark/list.png" alt="" class="titleIcon" /><h6>{% trans 'Edit internal' %}</h6></div>
+    <form action="{% url edit_timesheet 'internal' internal.id %}" class="form ts" id="int" method="POST">
+        {% csrf_token %}
+        <fieldset>
+            <div class="formRow">
+                <label>{% trans 'Date, hours' %}</label>
+                <div class="formRight">
+                    <span class="oneTwo">{{ form.InternalDueDate }}</span>
+                    <span class="oneTwo">{{ form.Hours }}</span>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="formRow">
+                <label>{% trans 'Internal' %}</label>
+                <div class="formRight">
+                    {{ form.Internal }}
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="formRow">
+                <label>{% trans 'Activity' %}</label>
+                <div class="formRight">
+                    {{ form.Activity }}
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <div class="formSubmit">
+                <input type="button" value="{% trans 'Delete' %}" class="redB delete_button" href="{% url delete_timesheet 'internal' internal.id %}">
+                <input type="submit" value="{% trans 'Submit' %}" class="blueB">
+            </div>
+        </fieldset>
+    </form>
+</div>

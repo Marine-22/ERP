@@ -1,0 +1,99 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-04-10 15:59+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2\n"
+
+#: .\views.py:20
+msgid "Active projects"
+msgstr ""
+
+#: .\views.py:29
+msgid "Finished projects"
+msgstr ""
+
+#: .\templates\project\details.html.py:18
+msgid "Project overview"
+msgstr ""
+
+#: .\templates\project\details.html.py:23
+msgid "Project client"
+msgstr ""
+
+#: .\templates\project\details.html.py:31
+#: .\templates\project\details.html.py:138
+msgid "Duration"
+msgstr ""
+
+#: .\templates\project\details.html.py:39
+msgid "Project manager"
+msgstr ""
+
+#: .\templates\project\details.html.py:47
+msgid "Project assurance"
+msgstr ""
+
+#: .\templates\project\details.html.py:62
+msgid "Financial statistics"
+msgstr ""
+
+#: .\templates\project\details.html.py:93
+msgid "Project phases"
+msgstr ""
+
+#: .\templates\project\details.html.py:97
+msgid "Name"
+msgstr ""
+
+#: .\templates\project\details.html.py:98
+msgid "Durtaion"
+msgstr ""
+
+#: .\templates\project\details.html.py:99
+msgid "Price"
+msgstr ""
+
+#: .\templates\project\details.html.py:114
+msgid "Add new phase"
+msgstr ""
+
+#: .\templates\project\details.html.py:122
+msgid "Allocated resources"
+msgstr ""
+
+#: .\templates\project\details.html.py:129
+msgid "Total allocations"
+msgstr ""
+
+#: .\templates\project\details.html.py:163
+msgid "Allocate resource"
+msgstr ""
+
+#: .\templates\project\edit.html.py:5
+msgid "Edit project"
+msgstr ""
+
+#: .\templates\project\list.html.py:14
+msgid "Project name"
+msgstr ""
+
+#: .\templates\project\list.html.py:15
+msgid "Project start"
+msgstr ""
+
+#: .\templates\project\list.html.py:16
+msgid "Project end"
+msgstr ""

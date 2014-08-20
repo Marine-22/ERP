@@ -1,0 +1,101 @@
+
+/* IE 6 doesn't support position: fixed */
+* html #achtung-overlay {
+    position:absolute;
+}
+
+/* IE6 includes padding in width */
+* html .achtung {
+    width: 280px;
+}
+
+#achtung-overlay {
+    overflow: hidden;
+    position: fixed;
+    top: 70px;
+    right: 15px;
+    width: 280px;
+    z-index:50000000;
+}
+
+.achtung {
+    display:none;
+    margin-bottom: 8px;
+    padding: 15px 15px;
+    background-color: #000;
+    color: white;
+    width: 250px;
+    font-weight: bold;
+    position:relative;
+    overflow: hidden;
+    -moz-box-shadow: #aaa 1px 1px 2px;
+    -webkit-box-shadow: #aaa 1px 1px 2px;
+    box-shadow: #aaa 1px 1px 2px;
+    -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px;
+    /* Note that if using show/hide animations, IE will lose
+       this setting */
+    opacity: .85;
+    filter:Alpha(Opacity=85);
+}
+
+.achtung .achtung-message-icon {
+    margin-top: 0px;
+    margin-left: -.5em;
+    margin-right: .5em;
+    float: left;
+    zoom: 1;
+}
+
+.achtung .ui-icon.achtung-close-button {
+    overflow: hidden;
+    float: right;
+    position: relative;
+    top: -8px;
+    right: -8px;
+    cursor: pointer;
+    background-image: url(../img/ui-icons_ffffff_256x240.png);
+}
+
+.achtung .ui-icon.achtung-close-button-hover {
+    background-image: url(../img/ui-icons_ffffff_256x240.png);
+}
+
+/* Slightly darker for these colors (readability) */
+.achtungSuccess, .achtungFail, .achtungWait {
+    /* Note that if using show/hide animations, IE will lose
+       this setting */
+    opacity: .93; filter:Alpha(Opacity=93);
+}
+
+.achtungSuccess {
+    background-color: #4DB559;
+}
+
+.achtungFail {
+    background-color: #D64450;
+}
+
+.achtungWait {
+    background-color: #658093;
+}
+
+.achtungSuccess .ui-icon.achtung-close-button,
+.achtungFail .ui-icon.achtung-close-button {
+    background-image: url(../img/ui-icons_222222_256x240.png);
+}
+
+.achtungSuccess .ui-icon.achtung-close-button-hover,
+.achtungFail .ui-icon.achtung-close-button-hover {
+    background-image: url(images/ui-icons_000000_256x240.png);
+}
+
+.achtung .wait-icon {
+    background-image: url('images/wait.gif');
+}
+
+.achtung .achtung-message {
+    display: inline;
+}
+
+.achtung-error { background-color: #a6332d; }
+.achtung-success { background-color: #3ea62d; }

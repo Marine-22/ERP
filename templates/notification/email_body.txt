@@ -1,0 +1,5 @@
+{% load i18n %}
+{% blocktrans %}
+    {{ sender }} sent you the following message:
+    {{ message }}
+{% endblocktrans %}

@@ -1,0 +1,29 @@
+{% extends 'index.html' %}
+{% load i18n %}
+
+{% block PageTitle %}
+    {{ project.Name }}
+{% endblock %}
+
+{% block PageSubTitle %}
+    {{ project.Status.name }}
+{% endblock %}
+
+{% block middleNav %}
+    <ul>
+        <li class="mUser">
+            <a href="{% url project_edit project.id %}" title="{% trans 'Edit project' %}" class="tipN"><span class="pencil"></span></a>
+        </li>
+    </ul>
+{% endblock %}
+
+{% block Content %}
+
+    <div class="widgets">
+        {% include 'project/details/blocks/overview.html' %}
+        {% include 'project/details/blocks/phases.html' %}
+        {% include 'project/details/blocks/allocations.html' %}
+        {% include 'project/details/blocks/resource_total.html' %}
+    </div>
+
+{% endblock %}

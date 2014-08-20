@@ -1,0 +1,11 @@
+{% extends 'index.html' %}
+
+{% block PageTitle %}
+    {{ partner.PartnerName }}
+{% endblock %}
+
+{% block Content %}
+    <div class="widgets">
+        {% include 'partner/details/blocks/overview.html' %}
+    </div>
+{% endblock %}

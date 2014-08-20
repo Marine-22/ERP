@@ -1,0 +1,160 @@
+{% load i18n %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;" />
+    <title>{% block Title %}IQUAP ERP System{% endblock %}</title>
+    <link href="/assets/css/main.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/custom.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/colorbox.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/jquery.ganttView.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/achtung.css" rel="stylesheet" type="text/css" />
+
+    <!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>-->
+    <script type="text/javascript" src="/assets/js/jquery.js"></script>
+
+    <script type="text/javascript" src="/assets/js/plugins/achtung/achtung.js"></script>
+
+    <script type="text/javascript" src="/assets/js/plugins/spinner/ui.spinner.js"></script>
+    <script type="text/javascript" src="/assets/js/plugins/spinner/jquery.mousewheel.js"></script>
+
+    <!--<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>-->
+    <script type="text/javascript" src="/assets/js/jquery-ui.js"></script>
+
+    <script type="text/javascript" src="/assets/js/plugins/charts/excanvas.min.js"></script>
+    <script type="text/javascript" src="/assets/js/plugins/charts/jquery.sparkline.min.js"></script>
+
+    <script type="text/javascript" src="/assets/js/plugins/jquery.colorbox.js"></script>
+    <script type="text/javascript" src="/assets/js/plugins/forms/uniform.js"></script>
+    <script type="text/javascript" src="/assets/js/plugins/forms/jquery.cleditor.js"></script>
+    <script type="text/javascript" src="/assets/js/plugins/forms/jquery.validationEngine-en.js"></script>
+    <script type="text/javascript" src="/assets/js/plugins/forms/jquery.validationEngine.js"></script>
+    <script type="text/javascript" src="/assets/js/plugins/forms/jquery.tagsinput.min.js"></script>
+    <script type="text/javascript" src="/assets/js/plugins/forms/autogrowtextarea.js"></script>
+    <script type="text/javascript" src="/assets/js/plugins/forms/jquery.maskedinput.min.js"></script>
+    <script type="text/javascript" src="/assets/js/plugins/forms/jquery.dualListBox.js"></script>
+    <script type="text/javascript" src="/assets/js/plugins/forms/jquery.inputlimiter.min.js"></script>
+    <script type="text/javascript" src="/assets/js/plugins/forms/chosen.jquery.min.js"></script>
+
+    <script type="text/javascript" src="/assets/js/plugins/wizard/jquery.form.js"></script>
+    <script type="text/javascript" src="/assets/js/plugins/wizard/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="/assets/js/plugins/wizard/jquery.form.wizard.js"></script>
+
+    <script type="text/javascript" src="/assets/js/plugins/uploader/plupload.js"></script>
+    <script type="text/javascript" src="/assets/js/plugins/uploader/plupload.html5.js"></script>
+    <script type="text/javascript" src="/assets/js/plugins/uploader/plupload.html4.js"></script>
+    <script type="text/javascript" src="/assets/js/plugins/uploader/jquery.plupload.queue.js"></script>
+
+    <script type="text/javascript" src="/assets/js/plugins/tables/datatable.js"></script>
+    <script type="text/javascript" src="/assets/js/plugins/tables/tablesort.min.js"></script>
+    <script type="text/javascript" src="/assets/js/plugins/tables/resizable.min.js"></script>
+
+    <script type="text/javascript" src="/assets/js/plugins/ui/jquery.tipsy.js"></script>
+    <script type="text/javascript" src="/assets/js/plugins/ui/jquery.collapsible.min.js"></script>
+    <script type="text/javascript" src="/assets/js/plugins/ui/jquery.prettyPhoto.js"></script>
+    <script type="text/javascript" src="/assets/js/plugins/ui/jquery.progress.js"></script>
+    <script type="text/javascript" src="/assets/js/plugins/ui/jquery.timeentry.min.js"></script>
+    <script type="text/javascript" src="/assets/js/plugins/ui/jquery.colorpicker.js"></script>
+    <script type="text/javascript" src="/assets/js/plugins/ui/jquery.jgrowl.js"></script>
+    <script type="text/javascript" src="/assets/js/plugins/ui/jquery.breadcrumbs.js"></script>
+    <script type="text/javascript" src="/assets/js/plugins/ui/jquery.sourcerer.js"></script>
+
+    <script type="text/javascript" src="/assets/js/plugins/calendar.min.js"></script>
+    <script type="text/javascript" src="/assets/js/plugins/elfinder.min.js"></script>
+    <script type="text/javascript" src="/assets/js/plugins/livequery.js"></script>
+    <script type="text/javascript" src="/assets/js/plugins/validation.js"></script>
+
+    <script type="text/javascript" src="/assets/js/custom.js"></script>
+    <script type="text/javascript" src="/assets/js/functions.js"></script>
+    <script type="text/javascript" src="/assets/js/ready.functions.js"></script>
+    <script type="text/javascript" src="/assets/js/date.js"></script>
+    <script type="text/javascript" src="/assets/js/plugins/jquery.ganttView.js"></script>
+    <script type="text/javascript" src="/assets/js/data.js"></script>
+    <script type="text/javascript" src="/assets/js/ajax.csrf.js"></script>
+
+    {% block pageHead %}
+    {% endblock %}
+</head>
+
+<body>
+
+<!-- Left side content -->
+<div id="leftSide">
+    <div class="logo"><a href="{% url dashboard %}"><img src="/assets/images/logo3.png" alt="" /></a></div>
+
+    <div class="sidebarSep mt0"></div>
+
+    <!-- Search widget -->
+    <form action="" class="sidebarSearch">
+        <input type="text" name="search" placeholder="search..." id="ac" />
+        <input type="submit" value="" />
+    </form>
+
+    <div class="sidebarSep"></div>
+
+    <!-- Left navigation -->
+    <ul id="menu" class="nav">
+        {% include '_blocks/navigation.html' %}
+    </ul>
+</div>
+
+
+<!-- Right side -->
+<div id="rightSide">
+
+{% include '_blocks/userbar.html' %}
+
+    <!-- Responsive header -->
+    <div class="resp">
+        <div class="respHead">
+            <a href="index.html" title=""><img src="/assets/images/loginLogo2.png" alt="" /></a>
+        </div>
+
+        <div class="cLine"></div>
+        {% include '_blocks/navigation_small.html' %}
+        <div class="cLine"></div>
+    </div>
+
+
+<!-- Title area -->
+<div class="titleArea">
+    <div class="wrapper">
+
+        <div class="pageTitle">
+            <h1>{% block PageTitle %}{% endblock %}</h1>
+            <span>{% block PageSubTitle %}{% endblock %}</span>
+        </div>
+
+        <div class="middleNav">
+            {% block middleNav %}
+            {% endblock %}
+            <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+
+    </div>
+</div>
+
+<div class="line"></div>
+
+<!-- Main content wrapper -->
+<div class="wrapper">
+
+    {% block Content %}{% endblock %}
+
+</div>
+
+<!-- Footer line -->
+<div id="footer">
+    <div class="wrapper">&copy; IQUAP a.s.</div>
+</div>
+
+</div>
+
+<div class="clear"></div>
+</body>
+
+</html>

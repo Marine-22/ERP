@@ -1,0 +1,37 @@
+{% extends 'index.html' %}
+{% load i18n %}
+
+{% block pageHead %}
+    <script type="text/javascript">
+
+        $(function () {
+            var width = $('.gantt').width();
+
+            $("#ganttChart").ganttView({
+                //data: ganttData,
+                dataUrl: 'http://external.iquap.com/reporting/holiday_report/ajax/',
+                slideWidth: width-243,
+                behavior: {
+                    clickable: false,
+                    draggable: false,
+                    resizable: false
+                }
+            });
+
+            // $("#ganttChart").ganttView("setSlideWidth", 600);
+        });
+    </script>
+{% endblock %}
+
+{% block PageTitle %}
+    {% trans 'Holiday report' %}
+{% endblock %}
+
+{% block Content %}
+
+    <div class="widget gantt">
+        <div class="title"><img src="/assets/images/icons/dark/frames.png" alt="" class="titleIcon"><h6>{% trans 'Holiday report' %}</h6></div>
+        <div id="ganttChart"></div>
+    </div>
+
+{% endblock %}

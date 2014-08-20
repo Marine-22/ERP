@@ -1,0 +1,5 @@
+#requirements/production.txt
+-r common.txt
+
+mysql-python==1.2.3
+python-ldap==2.4.9

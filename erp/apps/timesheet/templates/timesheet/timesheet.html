@@ -1,0 +1,29 @@
+{% extends 'index.html' %}
+{% load i18n %}
+
+{% block PageTitle %}
+    {% trans 'Timesheet' %}
+{% endblock %}
+
+{% block pageHead %}
+    <script type="text/javascript">
+        $('#ts').livequery(function(){
+            $(this).validate('{% url timesheet_form_validate %}', {type: 'growl', fields: ['hours'], dom: $('#id_hours'), event: 'submit'});
+            $(this).validate('{% url timesheet_form_validate %}', {type: 'growl'});
+        });
+        $('#int').livequery(function(){
+            $(this).validate('{% url internal_form_validate %}', {type: 'growl', fields: ['hours'], dom: $('#id_hours'), event: 'submit'});
+            $(this).validate('{% url internal_form_validate %}', {type: 'growl'});
+        });
+    </script>
+{% endblock %}
+
+{% block Content %}
+    {% include '_blocks/modal.html' %}
+
+    <div class="widget">
+        <div class="title"><img src="/assets/images/icons/dark/monthCalendar.png" alt="" class="titleIcon"><h6>Events</h6></div>
+        <div id="timesheet_calendar" events="{% url get_timesheet %}" clone="{% url clone_timesheet %}" add="{% url timesheetForm %}"></div>
+    </div>
+
+{% endblock %}

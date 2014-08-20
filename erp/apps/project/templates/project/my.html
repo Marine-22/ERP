@@ -1,0 +1,36 @@
+{% extends 'index.html' %}
+{% load i18n %}
+
+{% block PageTitle %}
+    {{ page_title }}
+{% endblock %}
+
+{% block Content %}
+    <div class="widget">
+        <div class="title"><img src="/assets/images/icons/dark/stats.png" alt="" class="titleIcon"><h6>{{ page_title }}</h6></div>
+        <table cellpadding="0" cellspacing="0" width="100%" class="sTable">
+            <thead>
+            <tr>
+                <td>{% trans 'Project name' %}</td>
+                <td>{% trans 'Project start' %}</td>
+                <td>{% trans 'Project end' %}</td>
+            </tr>
+            </thead>
+            <tbody>
+            {% for project in project_list %}
+                <tr>
+                    <td>
+                        <a href="{% url project_details project.id %}">{{ project.Name }}</a>
+                    </td>
+                    <td>
+                        {{ project.Start|date:'d.m.Y' }}
+                    </td>
+                    <td>
+                        {{ project.End|date:'d.m.Y' }}
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

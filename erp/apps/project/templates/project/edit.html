@@ -1,0 +1,72 @@
+{% extends 'index.html' %}
+{% load i18n %}
+
+{% block PageTitle %}
+    {% trans 'Edit project' %}
+{% endblock %}
+
+{% block Content %}
+    <div class="grid-16">
+        <form class="form uniformForm">
+
+            <div class="widget">
+
+                <div class="widget-header">
+                    <span class="icon-article"></span>
+                    <h3>Basic Layout</h3>
+                </div> <!-- .widget-header -->
+
+                <div class="widget-content">
+
+                    <div class="field-group">
+                        <label>Name:</label>
+
+                        <div class="field">
+                            <input type="text" name="fname" id="fname" size="10" class="">
+                            <label for="fname">First</label>
+                        </div>
+                        <div class="field">
+                            <input type="text" name="mname" id="mname" size="1">
+                            <label for="mname">Mi</label>
+                        </div>
+                        <div class="field">
+                            <input type="text" name="lname" id="lname" size="12" class="">
+                            <label for="lname">Last</label>
+                        </div>
+                    </div> <!-- .field-group -->
+
+                    <div class="field-group">
+                        <label>Phone Number:</label>
+
+                        <div class="field">
+                            <input type="text" name="phone1" id="phone1" size="3">
+                            <label for="phone1">702</label>
+                        </div>
+
+                        <div class="field">
+                            <input type="text" name="phone2" id="phone2" size="3">
+                            <label for="phone2">555</label>
+                        </div>
+
+                        <div class="field">
+                            <input type="text" name="phone3" id="phone3" size="4">
+                            <label for="phone3">6666</label>
+                        </div>
+                    </div> <!-- .field-group -->
+
+                    <div class="field-group">
+                        <label for="message">Message:</label>
+
+                        <div class="field">
+                            <textarea name="message" id="message" rows="5" cols="50"></textarea>
+                        </div>
+                    </div> <!-- .field-group -->
+
+
+                </div> <!-- .widget-content -->
+
+            </div> <!-- .widget -->
+
+        </form>
+    </div>
+{% endblock %}

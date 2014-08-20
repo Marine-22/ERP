@@ -1,0 +1,47 @@
+{% extends 'index.html' %}
+{% load i18n %}
+
+{% block PageTitle %}
+    {% trans 'Resources' %}
+{% endblock %}
+
+{% block Content %}
+
+    <div class="widget">
+        <ul class="tabs">
+            {% for group in users_list %}
+            <li><a href="#{{ group.id }}">{{ group.name }}</a></li>
+            {% endfor %}
+        </ul>
+
+        <div class="tab_container">
+            {% for group in users_list %}
+            <div id="{{ group.id }}" class="tab_content" style="padding:0 !important;">
+
+                <table cellpadding="0" cellspacing="0" width="100%" class="sTable taskWidget">
+                    <thead>
+                        <tr>
+                            <td>{% trans 'Resource name' %}</td>
+                            <td width="60">Acts</td>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {% for resource in group.users %}
+                        <tr>
+                            <td class="taskPr"><a href="{% url resource_details resource.id %}" title="">{{ resource.first_name }} {{ resource.last_name }}</a></td>
+                            <td class="actBtns">
+                                <a href="#" class="tipS" original-title="Update"><img src="/assets/images/icons/dark/pencil.png" alt=""></a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+            </div>
+            {% endfor %}
+        </div>
+        <div class="clear"></div>
+    </div>
+
+{% endblock %}

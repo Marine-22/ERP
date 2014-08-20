@@ -1,0 +1,55 @@
+{% load i18n %}
+
+<div class="widget">
+    <div class="title"><img src="/assets/images/icons/dark/users.png" alt="" class="titleIcon"><h6>{% trans 'Allocated resources' %}</h6></div>
+
+    <ul class="partners">
+        {% for resource in allocation_list %}
+            <li id="{{ resource.user.Resource__pk }}" class="allocation">
+                <div class="pInfo">
+                    <a href="#" title=""><strong>{{ resource.user.Resource__first_name }} {{ resource.user.Resource__last_name }}</strong></a>
+                    <i>{% trans 'Total allocations' %} &ndash; {{ resource.count }}</i>
+                </div>
+                <div class="clear"></div>
+            </li>
+
+            <li style="margin:0; padding:0; display:none" class="{{ resource.user.Resource__pk }}">
+                <table cellpadding="0" cellspacing="0" width="100%" class="sTable taskWidget">
+                    <thead>
+                    <tr>
+                        <td>{% trans 'Duration' %}</td>
+                        <td width="100">Status</td>
+                        <td>Acts</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for allocation in resource.allocations %}
+                        <tr>
+                            <td class="taskPr"><a href="#" title="">
+                                {{ allocation.Start|date:'d.f.Y' }}&ndash;{{ allocation.End|date:'d.f.Y' }}
+                            </a></td>
+                            <td><span class="green f11">in progress</span></td>
+                            <td class="actBtns">
+                                <a href="#" data-loader="{% url edit_allocation allocation.id %}" title="Update" class="tipS popup-link">
+                                    <img src="/assets/images/icons/dark/pencil.png" alt="" />
+                                </a>
+                                <a href="#" data-loader="{% url delete_allocation allocation.id %}" title="Remove" class="tipS popup-link">
+                                    <img src="/assets/images/icons/dark/close.png" alt="" />
+                                </a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </li>
+
+            <div class="cLine"></div>
+
+        {% endfor %}
+    </ul>
+
+    <div class="body textC">
+        <a href="#" title="" class="wButton bluewB m10 popup-link" data-loader="{% url add_allocation project.id %}"><span>{% trans 'Allocate resource' %}</span></a>
+    </div>
+
+</div>

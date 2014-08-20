@@ -1,0 +1,92 @@
+{% extends 'index.html' %}
+{% load i18n %}
+
+{% block PageTitle %}
+    {% trans 'Internal report' %}
+{% endblock %}
+
+{% block Content %}
+
+    <div class="widgets">
+
+        <div class="twoOne">
+            <div class="widget">
+                <div class="title"><img src="/assets/images/icons/dark/frames.png" alt="" class="titleIcon"><h6>{% trans 'Monthly report' %}</h6></div>
+                <table cellpadding="0" cellspacing="0" width="100%" class="sTable">
+                    <thead>
+                        <tr>
+                            <td>{% trans 'Resource name' %}</td>
+                            <td>{% trans 'Work days' %}</td>
+                            <td>{% trans 'Holiday' %}</td>
+                            <td>{% trans 'Doctor' %}</td>
+                            <td>{% trans 'Illness' %}</td>
+                            <td>{% trans 'Dietary tickets' %}</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for item in internal_report_list %}
+                            <tr>
+                                <td>{{ item.Resource.last_name }} {{ item.Resource.first_name }}</td>
+                                <td>{{ item.WorkDays }}</td>
+                                <td>{{ item.HolidayDays }}</td>
+                                <td>{{ item.DoctorDays }}</td>
+                                <td>{{ item.IllnessDays }}</td>
+                                <td>{{ item.DietaryTickets }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="oneThree">
+
+            <form action="{% url internal_summary_report %}" method="POST" class="form">
+                {% csrf_token %}
+                <fieldset>
+
+                    <div class="widget">
+                        <div class="title"><h6>{% trans 'Filter' %}</h6></div>
+
+                        <div class="formRow">
+                            <label>{% trans 'Year' %}:</label>
+                            <div class="formRight" style="width:50%;">
+                                <select name="year" id="year">
+                                    {% for item in ylst %}
+                                        <option value="{{ item }}" {% if template_year == item %}selected{% endif %}>{{ item }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+
+                        <div class="formRow">
+                            <label>{% trans 'Month' %}:</label>
+                            <div class="formRight" style="width:50%;">
+                                <select name="month" id="month">
+                                    {% for item in mlst %}
+                                        <option value="{{ item.name.0 }}" {% if template_month == item.name.0 %}selected{% endif %}>{{ item.name.1 }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+
+                        <div class="formSubmit">
+                            <input type="submit" name="export" value="{% trans 'Export to excel' %}" class="blueB">
+                            <input type="submit" name="submit" value="{% trans 'Apply' %}" class="redB">
+                        </div>
+                        <div class="clear"></div>
+
+                    </div>
+
+                </fieldset>
+            </form>
+
+        </div>
+
+        <div class="clear"></div>
+
+    </div>
+
+{% endblock %}

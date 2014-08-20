@@ -1,0 +1,33 @@
+{% extends 'index.html' %}
+{% load i18n %}
+
+{% block PageTitle %}
+    {{ page_title }}
+{% endblock %}
+
+{% block Content %}
+    <div class="widget">
+        <div class="title"><img src="/assets/images/icons/dark/stats.png" alt="" class="titleIcon"><h6>{% trans 'List of partners' %}</h6></div>
+        <table cellpadding="0" cellspacing="0" border="0" class="display dTable">
+        <thead>
+                <tr>
+                    <th>{% trans 'Partner name' %}</th>
+                    <th>{% trans 'Type' %}</th>
+                    <th>{% trans 'Sector' %}</th>
+                    <th>{% trans 'Segment' %}</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for partner in partner_list %}
+                <tr class="gradeA">
+                    <td>
+                        <a href="{% url partner_details partner.id %}">{{ partner.PartnerName }}</a></td>
+                    <td>{{ partner.Type }}</td>
+                    <td>{{ partner.Sector }}</td>
+                    <td>{{ partner.Segment }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

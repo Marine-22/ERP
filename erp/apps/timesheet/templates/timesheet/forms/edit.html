@@ -1,0 +1,48 @@
+{% load i18n %}
+
+<script>
+    // This code is just a fucking non-sense. I just have no time to make a better solution. After 2 years I am still doing this fucking shit alone.
+    $(document).ready(function(){
+        var a = $("#id_dueDate").val();
+        var date = a.split('-');
+        var new_date = date[2] + '.' + date[1] + '.' + date[0];
+        $("#id_dueDate").val(new_date);
+
+        var b = $('#id_hours').val();
+        var hours = b.split('.');
+        $("#id_hours").val(hours[0]);
+    })
+</script>
+
+<div class="widget rightTabs" style="margin-top:0">
+    <div class="title"><img src="/assets/images/icons/dark/list.png" alt="" class="titleIcon" /><h6>{% trans 'Edit' %}</h6></div>
+
+
+    <div class="tab_container">
+        <div id="tab3" class="tab_content np">
+
+            <form action="{% url timesheetFormSave type timesheet.id %}" class="form ts" id="{% if type == 'internal' %}int{% else %}ts{% endif %}" method="POST">
+                {% csrf_token %}
+                <fieldset>
+
+                    {% for field in editForm %}
+                        <div class="formRow">
+                            <label>{{ field.label }}</label>
+                            <div class="formRight">
+                                {{ field.errors }}
+                                {{ field }}
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    {% endfor %}
+
+                    <div class="formSubmit">
+                        <a href="{% url delete_timesheet type timesheet.id %}" title="" class="button redB delete_button" style="margin: 5px;"><span>{% trans 'Delete' %}</span></a>
+                        <input type="submit" value="{% trans 'Submit' %}" class="blueB">
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+
+</div>

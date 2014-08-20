@@ -1,0 +1,41 @@
+{% load i18n %}
+
+<div class="widget">
+    <div class="title"><img src="/assets/images/icons/dark/preview.png" alt="" class="titleIcon"><h6>{% trans 'Project overview' %}</h6></div>
+    <table cellpadding="0" cellspacing="0" width="100%" class="sTable">
+        <tbody>
+        <tr>
+            <td>
+                {% trans 'Project client' %}
+            </td>
+            <td>
+                <h6>{{ project.ProjectClient }}</h6>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {% trans 'Duration' %}
+            </td>
+            <td>
+                <h6>{{ project.Start|date:'d.m.Y' }}&ndash;{{ project.End|date:'d.m.Y' }}</h6>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {% trans 'Project manager' %}
+            </td>
+            <td>
+                <h6>{{ project.ProjectManager.first_name }} {{ project.ProjectManager.last_name }}</h6>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {% trans 'Project assurance' %}
+            </td>
+            <td>
+                <h6>{{ project.QualityAssurance.first_name }} {{ project.QualityAssurance.last_name }}</h6>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

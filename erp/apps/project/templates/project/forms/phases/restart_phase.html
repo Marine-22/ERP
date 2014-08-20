@@ -1,0 +1,26 @@
+{% load i18n %}
+
+<div class="wrapper" style="margin:0 !important; padding:0 !important;">
+
+    <div class="widget" style="margin:0 !important; padding:0 !important;">
+        <!-- Form -->
+        <form action="{% url project_restart_phase phase.id %}" class="form ts" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <fieldset>
+                <div class="title"><img src="/assets/images/icons/dark/list.png" alt="" class="titleIcon" /><h6>{% trans 'Re-start project phase' %}</h6></div>
+                <div class="formRow">
+                    <p>{% trans 'Are you sure you want to re-start following phase?' %}</p>
+                    <br />
+                    <h4>{{ phase.Name }}</h4>
+                    <p>{% trans 'Duration' %}: {{ phase.Start }}&ndash;{{ phase.End }}</p>
+                </div>
+
+                <div class="formSubmit">
+                    <a href="#" title="" class="button redB cbox-close" style="margin: 5px;"><span>{% trans 'Cancel' %}</span></a>
+                    <input type="submit" value="{% trans 'Re-start' %}" class="blueB">
+                </div>
+
+            </fieldset>
+        </form>
+    </div>
+</div>

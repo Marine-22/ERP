@@ -1,0 +1,59 @@
+{% load i18n %}
+
+<div class="widget rightTabs" style="margin-top:0">
+    <div class="title"><img src="/assets/images/icons/dark/list.png" alt="" class="titleIcon" /><h6>{% trans 'Add new timesheet' %}</h6></div>
+
+    <!-- Form header tabs -->
+    <ul class="tabs">
+        <li><a href="#tab3">{% trans 'Timesheet' %}</a></li>
+        <li><a href="#tab4">{% trans 'Internal' %}</a></li>
+    </ul>
+
+    <div class="tab_container">
+        <div id="tab3" class="tab_content np">
+
+            <form action="{% url timesheetFormSave 'timesheet' %}" class="form ts" id="ts" method="POST">
+                {% csrf_token %}
+                <fieldset>
+
+                    {% for field in timsheetForm %}
+                        <div class="formRow">
+                            <label>{{ field.label }}</label>
+                            <div class="formRight">
+                                {{ field.errors }}
+                                {{ field }}
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    {% endfor %}
+
+                    <div class="formSubmit">
+                        <input type="submit" value="{% trans 'Submit' %}" class="blueB">
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+
+        <div id="tab4" class="tab_content np" style="display:none">
+            <form action="{% url timesheetFormSave 'internal' %}" class="form ts" id="int" method="POST">
+                {% csrf_token %}
+                <fieldset>
+                    {% for field in internalForm %}
+                        <div class="formRow">
+                            <label>{{ field.label }}</label>
+                            <div class="formRight">
+                                {{ field.errors }}
+                                {{ field }}
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    {% endfor %}
+                    <div class="formSubmit">
+                        <input type="submit" value="{% trans 'Submit' %}" class="blueB">
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+
+</div>

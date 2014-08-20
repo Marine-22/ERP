@@ -1,0 +1,58 @@
+{% extends 'index.html' %}
+{% load i18n %}
+
+{% block Content %}
+    <div class="widgets">
+        <div class="oneTwo">
+            <div class="widget">
+                <div class="title"><img src="/assets/images/icons/dark/user.png" alt="" class="titleIcon"><h6>{% trans 'Resources' %}</h6></div>
+
+                {% for user in user_list %}
+                <div class="wUserInfo" link="{% url approveTimesheetFetch user.id %}" style="cursor:pointer">
+                    <ul class="leftList">
+                        <li><a href="#" title=""><strong>{{ user.first_name }} {{ user.last_name }}</strong></a></li>
+                    </ul>
+                    <ul class="rightList">
+                        <li><a href="#" class="red">{{ user.count }} {% trans 'unapproved' %}</a></li>
+                    </ul>
+                    <div class="clear"></div>
+                </div>
+
+                <div class="cLine"></div>
+                {% endfor %}
+
+            </div>
+        </div>
+        <div class="oneTwo">
+
+            <form id="form" method="POST" enctype="multipart/form-data" action="{% url approveTimesheet %}">
+                {% csrf_token %}
+
+                <div class="approve">
+                    <div class="oneTwo">
+                        <a href="#" title="" class="wContentButton bluewB submit" type="ApproveTimesheet">{% trans 'Approve' %}</a>
+                    </div>
+
+                    <div class="oneTwo">
+                        <a href="#" title="" class="wContentButton redwB submit" type="RejectTimesheet">{% trans 'Reject' %}</a>
+                    </div>
+
+                    <div class="clear"></div>
+                </div>
+
+                <div class="widget">
+                    <div class="title"><img src="/assets/images/icons/dark/user.png" alt="" class="titleIcon"><h6>{% trans 'Unnaproved holiday' %}</h6></div>
+
+                    <div class="inner">
+                        <div class="content">
+                        {% trans 'First select resource on the left. The list of unapproved holiday will be loaded after.' %}
+                        </div>
+                    </div>
+
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+{% endblock %}

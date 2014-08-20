@@ -1,0 +1,15 @@
+.hundred { width:100% !important }
+.custom-dialog {}
+    .custom-dialog .formRight { width:60%; }
+    .custom-dialog .label { margin-top:10px !important; }
+    .custom-dialog .top-label { margin-top: 0 !important; }
+
+.oneTwo .datepicker { width:90% !important; }
+.ts div.selector  { width:420px !important; }
+.ts div.selector span { width:420px !important; }
+.ts div.selector select { width:430px !important; }
+
+.allocation { cursor: pointer; }
+
+.approve { display:none; }
+.selected-approve { background: #aaaaaa; }

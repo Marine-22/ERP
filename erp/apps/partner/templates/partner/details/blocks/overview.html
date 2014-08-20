@@ -1,0 +1,41 @@
+{% load i18n %}
+
+<div class="widget">
+    <div class="title"><img src="/assets/images/icons/dark/preview.png" alt="" class="titleIcon"><h6>{% trans 'Partner overview' %}</h6></div>
+    <table cellpadding="0" cellspacing="0" width="100%" class="sTable">
+        <tbody>
+        <tr>
+            <td>
+                {% trans 'Company id' %}
+            </td>
+            <td>
+                <h6>{{ partner.CompanyId }}</h6>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {% trans 'Bank account' %}
+            </td>
+            <td>
+                <h6>{{ partner.BankAccount }}/{{ partner.BankName.Code }}</h6>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {% trans 'Tax ID' %}
+            </td>
+            <td>
+                <h6>{{ partner.TaxId }}</h6>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {% trans 'Vat ID' %}
+            </td>
+            <td>
+                <h6>{{ partner.VatId }}</h6>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
