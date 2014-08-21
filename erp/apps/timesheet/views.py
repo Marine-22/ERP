@@ -195,8 +195,12 @@ def timesheet_approval(request):
         return HttpResponseRedirect(reverse('approveTimesheet'))
 
 # View that will server all unapproved timesheets
-def timesheet_approval_fetch(request, id=None):
-    timesheet_list = InternalTimeSheet.objects.filter(Status__name='New', Internal__Name='Holiday', User__id=int(id)).order_by('InternalDueDate')
+def timesheet_approval_fetch(request, id=None, page=1):    
+    timesheet_list = InternalTimeSheet.objects.filter(Status__name='New', Internal__Name='Holiday', User__id=int(id)).order_by('InternalDueDate')[((int(page)-1)*10):(int(page)*10)];
+    list_size = InternalTimeSheet.objects.filter(Status__name='New', Internal__Name='Holiday', User__id=int(id)).count();
+    # actual page, max pages
+    timesheet_list.actual_page = int(page)
+    timesheet_list.max_pages = int(list_size)/10+1
 
     return render(
         request,

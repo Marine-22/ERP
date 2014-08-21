@@ -13,6 +13,7 @@ $(document).ready(
             $.get(url, {}, function(e) {
                 $(".approve").show();
                 $(".inner").html(e);
+                paging_init("table[data-actual]", url);
             });
         });
 
@@ -52,6 +53,14 @@ $(document).ready(
             $(this).click(function(){
                 jQuery('#cboxClose').click();
             });
+        });
+
+        $('.titleNextIcon').click(function(){
+            // make some whichcraft
+        });
+
+        $('.titlePrevIcon').click(function(){
+            // make some whichcraft
         });
 
         $('#timesheet_calendar').fullCalendar({

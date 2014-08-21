@@ -702,6 +702,9 @@ input[type=submit], input[type=reset], input[type=button], button { padding: 7px
 .widget .title { height: 36px; background: #efefef url(../images/backgrounds/titleBg.png) repeat-x; border-bottom: 1px solid #cdcdcd; }
 .widget .title .titleIcon { float: left; padding: 11px 11px; border-right: 1px solid #D5D5D5; }
 
+.widget .title .titlePrevIcon { float: right; padding: 13px 11px; border-left: 1px solid #D5D5D5; }
+.widget .title .titleNextIcon { float: right; padding: 13px 11px;}
+
 .toggle { background: #f9f9f9; border: 1px solid #cdcdcd; margin-top: 32px; clear: both; border-bottom: none; }
 .toggle .title { height: 36px; background: #efefef url(../images/backgrounds/titleBg.png) repeat-x; border-bottom: 1px solid #cdcdcd; cursor: pointer; }
 .toggle .title h6 { float: left; font-size: 12px; font-weight: bold; padding: 9px 12px 8px 12px; display: block; } 
