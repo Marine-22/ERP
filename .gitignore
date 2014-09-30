@@ -1,0 +1,49 @@
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+*.pyc
+ 
+# Packages #
+############
+# it's better to unpack these files and commit the raw source
+# git has its own built in compression methods
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+envir/include/python2.6
+envir/lib/python2.6/UserDict.py
+envir/lib/python2.6/_abcoll.py
+envir/lib/python2.6/abc.py
+envir/lib/python2.6/codecs.py
+envir/lib/python2.6/config
+envir/lib/python2.6/copy_reg.py
+envir/lib/python2.6/encodings
+envir/lib/python2.6/fnmatch.py
+envir/lib/python2.6/genericpath.py
+envir/lib/python2.6/lib-dynload
+envir/lib/python2.6/linecache.py
+envir/lib/python2.6/locale.py
+envir/lib/python2.6/ntpath.py
+envir/lib/python2.6/os.py
+envir/lib/python2.6/posixpath.py
+envir/lib/python2.6/re.py
+envir/lib/python2.6/sre.py 
+envir/lib/python2.6/sre.py
+envir/lib/python2.6/sre_compile.py
+envir/lib/python2.6/sre_constants.py
+envir/lib/python2.6/sre_parse.py
+envir/lib/python2.6/stat.py
+envir/lib/python2.6/types.py
+envir/lib/python2.6/warnings.py
+
