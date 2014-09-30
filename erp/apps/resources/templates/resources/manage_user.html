@@ -1,0 +1,44 @@
+{% extends 'index.html' %}
+{% load i18n %}
+
+{% block pageHead %}
+	{% if userForm.id %}
+	<!--
+	    <script type="text/javascript">
+	        $(function()    {
+	            $('#form').validate('{% url user_form_validate %}', {type: 'growl'});
+	        });
+	    </script>
+	-->
+	{% endif %}
+{% endblock %}
+
+{% block PageTitle %}
+    {{ userDetail.first_name }} {{ userDetail.last_name }}
+{% endblock %}
+
+{% block middleNav %}
+	{% if userDetail.canEdit or userDetail.officeManager %}
+	    <ul>
+	        <li class="mUser">
+	            <a href="{% url resource_update userDetail.id %}" title="{% trans 'Edit resource' %}" class="tipN"><span class="pencil"></span></a>
+	        </li>
+	    </ul>
+    {% endif %}
+
+{% endblock %}
+
+{% block Content %}
+
+    <div class="widgets">
+    	{% if userDetail.action = 'change' %}
+        	{% include 'resources/blocks/change.html' %}
+        {% elif userDetail.action = 'create' %}
+       		{% include 'resources/blocks/create.html' %}
+        {% elif userDetail.action = 'detail' %}
+        	{% include 'resources/blocks/overview.html' %}
+        	{% include 'resources/blocks/allocations.html' %}
+        {% endif %}
+    </div>
+
+{% endblock %}

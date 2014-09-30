@@ -5,6 +5,16 @@
     {% trans 'Resources' %}
 {% endblock %}
 
+{% block middleNav %}
+    {% if userDetail.isSuperLoggedIn or userDetail.officeManager %}
+        <ul>
+            <li class="mUser">
+                <a href="{% url resource_create %}" title="{% trans 'New resource' %}" class="tipN"><span class="newUser"></span></a>
+            </li>
+        </ul>
+    {% endif %}
+{% endblock %}
+
 {% block Content %}
 
     <div class="widget">
@@ -22,7 +32,7 @@
                     <thead>
                         <tr>
                             <td>{% trans 'Resource name' %}</td>
-                            <td width="60">Acts</td>
+                            <!-- <td width="60">Acts</td> -->
                         </tr>
                     </thead>
 
@@ -30,9 +40,14 @@
                         {% for resource in group.users %}
                         <tr>
                             <td class="taskPr"><a href="{% url resource_details resource.id %}" title="">{{ resource.first_name }} {{ resource.last_name }}</a></td>
+                        <!--
+                            {% if userDetail.canEdit or userDetail.officeManager %}
                             <td class="actBtns">
-                                <a href="#" class="tipS" original-title="Update"><img src="/assets/images/icons/dark/pencil.png" alt=""></a>
+                                <a href="{% url resource_update resource.id %}" class="tipS" original-title="Update"><img src="/assets/images/icons/dark/pencil.png" alt=""></a>
                             </td>
+                            {% endif %}
+                        -->
+
                         </tr>
                         {% endfor %}
                     </tbody>
