@@ -1,0 +1,69 @@
+{% load i18n %}
+
+<div class="widget">
+    <div class="title"><img src="/assets/images/icons/dark/preview.png" alt="" class="titleIcon"><h6>{% trans 'User overview' %}</h6></div>
+    <table cellpadding="0" cellspacing="0" width="100%" class="sTable">
+        <tbody>
+        <tr>
+            <td>
+                {% trans 'Username' %}
+            </td>
+            <td>
+                <h6>{{ userDetail.username }}</h6>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {% trans 'First name' %}
+            </td>
+            <td>
+                <h6>{{ userDetail.first_name }}</h6>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {% trans 'Last name' %}
+            </td>
+            <td>
+                <h6>{{ userDetail.last_name }}</h6>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {% trans 'Email' %}
+            </td>
+            <td>
+                <h6>{{ userDetail.email }}</h6>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {% trans 'Phone number' %}
+            </td>
+            <td>
+                <h6>{{ userDetail.phone_number }}</h6>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {% trans 'Is Superuser' %}
+            </td>
+            <td>
+                {% if userDetail.is_superuser %}
+                <img src="/assets/images/icons/dark/check.png" alt="">
+                {% else %}
+                <img src="/assets/images/icons/dark/close.png" alt="">
+                {% endif %}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {% trans 'Groups' %}
+            </td>
+            <td>
+                <h6>{{ userDetail.groups.all|join:"; " }}</h6>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

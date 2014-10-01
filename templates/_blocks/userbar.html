@@ -3,7 +3,9 @@
 <!-- Top fixed navigation -->
 <div class="topNav">
     <div class="wrapper">
-        <div class="welcome"><img src="/assets/images/userPic.png" alt="" /><span>{{ user.first_name }}, {{ user.last_name }}</span></div>
+        <a href="{% url resource_details user.id %}">
+            <div class="welcome"><img src="/assets/images/userPic.png" alt="" /><span>{{ user.first_name }}, {{ user.last_name }}</span></div>
+        </a>
         <div class="userNav">
             <ul>
                 <!--<li><a href="#" title=""><img src="/assets/images/icons/topnav/profile.png" alt="" /><span>Profile</span></a></li>

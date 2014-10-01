@@ -1,0 +1,26 @@
+{% load i18n %}
+<div class="widget">
+	<form action="{% url resource_create %}" class="form" id="form" method="POST" enctype="multipart/form-data">
+	{% csrf_token %}
+	    <fieldset>
+	        <div class="title"><img src="/assets/images/icons/dark/list.png" alt="" class="titleIcon"><h6>{% trans 'Create resource' %}</h6></div>
+	        {% for field in userForm %}
+	            <div class="formRow">
+	                <label>{{ field.label }}</label>
+	                <div class="formRight">
+	                    {{ field.errors }}
+	                    {{ field }}
+	                    {% if field.help_text %}
+	                        <span class="formNote">
+	                            {{ field.help_text }}
+	                        </span>
+	                    {% endif %}
+	                </div>
+	                <div class="clear"></div>
+	            </div>
+	        {% endfor %}
+
+	          <div class="formSubmit"><input type="submit" value="{% trans 'Save resource' %}" class="redB"></div>
+	    </fieldset>
+	</form>
+</div>

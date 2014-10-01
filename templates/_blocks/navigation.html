@@ -7,7 +7,6 @@
         </a>
     </li>
 
-    <!--
 
     {% for group in user.groups.all %}
         {% if group.name == 'Finance manager' or group.name == 'Office manager' or group.name == 'Country manager' or user.is_superuser %}
@@ -22,7 +21,6 @@
         {% endif %}
     {% endfor %}
 
-    -->
 
     {% for group in user.groups.all %}
         {% if group.name == 'Finance manager' or group.name == 'Office manager' or group.name == 'Country manager' or user.is_superuser %}

@@ -114,7 +114,9 @@ p { padding-top: 12px; }
 
 .dn, .resp { display: none; }
 
-select[multiple] { border: 1px solid #ddd; box-shadow: 0 0 0 2px #f4f4f4; -webkit-box-shadow: 0 0 0 2px #f4f4f4; -moz-box-shadow: 0 0 0 2px #f4f4f4; color: #656565; background: white; }
+
+select[multiple] { border: 1px solid #ddd; min-width:200px; box-shadow: 0 0 0 2px #f4f4f4; -webkit-box-shadow: 0 0 0 2px #f4f4f4; -moz-box-shadow: 0 0 0 2px #f4f4f4; color: #656565; background: white; min-height: 82px; }
+
 
 /* Placeholder colors */
 
@@ -452,6 +454,7 @@ ul.sub li ul li { padding-left: 10px; }
 .middleNav ul li a span.orders { background: url(../images/icons/middlenav/orders.png) no-repeat 16px; }
 .middleNav ul li a span.pencil { background: url(../images/icons/middlenav/pencil.png) no-repeat 16px; }
 .middleNav ul li a span.wang { background: url(../images/icons/middlenav/wand-hat.png) no-repeat 16px; }
+.middleNav ul li a span.newUser { background: url(../images/icons/middlenav/new_user.png) no-repeat 16px; }
 
 .middleNav ul li ul { position: absolute; top: 50px; right: -1px; width: 156px; z-index: 996; border: none; background: url(../images/subArrow.png) no-repeat 82% 0; display: none; }
 .middleNav ul li ul li { display: block; float: none; border-bottom: 1px solid #1c252b; border-top: 1px solid #404950; border-left: none; background: url(../images/backgrounds/navBg.jpg); }
@@ -1023,7 +1026,7 @@ table thead td.headerSortDown span { background: url(../images/icons/sortDown.pn
 
 /* ===== General form styles ===== */
 
-.formRow { padding: 22px 14px; clear: both; border-bottom: 1px solid #E2E2E2; border-top: 1px solid white; position: relative; }
+.formRow { padding: 20px 14px; clear: both; border-bottom: 1px solid #E2E2E2; border-top: 1px solid white; position: relative; }
 .formRow:first-child { border-top: none; }
 .formRow:last-child { border-bottom: none; }
 .ui-formwizard .formRow:last-child { border-bottom: 1px solid #E2E2E2 ; }
@@ -1043,6 +1046,7 @@ table thead td.headerSortDown span { background: url(../images/icons/sortDown.pn
 
 .formRow .checker, .formRow .radio { margin-right: 12px; margin-top: 4px; }
 .formRow .formRight { display: block; float: right; width: 80%; margin-right: 18px; }
+.formRow .formRight .errorlist li { color: #9F352B; }
 
 .form input[type=text], .form input[type=password], .form textarea { font-size: 11px; padding: 7px 6px; background: white; border: 1px solid #DDD; width: 100%; font-family: Arial, Helvetica, sans-serif; box-shadow: 0 0 0 2px #f4f4f4; -webkit-box-shadow: 0 0 0 2px #f4f4f4; -moz-box-shadow: 0 0 0 2px #f4f4f4; color: #656565; } 
 .form input[type=text]:hover, .form input[type=password]:hover, .form textarea:hover { border-color: #d5d9dc; background: #fdfdfd; }

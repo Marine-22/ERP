@@ -4,7 +4,6 @@
 {% block pageHead %}
     <script type="text/javascript">
         $(function()    {
-            $('#form').validate('{% url partner_form_validate %}', {type: 'growl', fields: ['Name'], dom: $('#id_Name'), event: 'submit'});
             $('#form').validate('{% url partner_form_validate %}', {type: 'growl'});
         });
     </script>
@@ -34,7 +33,7 @@
                 </div>
             {% endfor %}
 
-            <div class="formSubmit"><input type="submit" value="{% trans 'Create partner' %}" class="redB"></div>
+            <div class="formSubmit"><input type="submit" value="{% trans 'Save' %}" class="redB"></div>
 
         </fieldset>
     </form>
