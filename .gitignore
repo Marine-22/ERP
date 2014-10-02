@@ -21,4 +21,6 @@
 *.tar
 *.zip
 
+# Environment folder #
+######################
 environment
