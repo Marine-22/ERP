@@ -12,10 +12,9 @@ function paging_init(element, link) {
 	$('.titleNextIcon').off("click");
 
 	// 1. najst tag ktory drzi data o pagingu: actual a max
-	paging_meta_data.actual = $(element).attr("data-actual");
-	paging_meta_data.max = $(element).attr("data-max");
+	paging_meta_data.actual = parseInt($(element).attr("data-actual"));
+	paging_meta_data.max = parseInt($(element).attr("data-max"));
 
-	
 	// 2. ak je actual > 1, potom aktivuj titleNextIcon
 	if (paging_meta_data.actual > 1) {
 		$('.titlePrevIcon').attr("style", "cursor:pointer");
