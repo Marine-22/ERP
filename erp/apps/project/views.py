@@ -153,6 +153,8 @@ def project_create(request):
                     'form':form
                 })
     else:
+        # Osetrenie desatinneho oddelovaca
+        request.POST['Price'] = str(request.POST['Price']).replace(',', '.')
         form = ProjectForm(request.POST)
         if form.is_valid():
             item = form.save()
@@ -257,6 +259,8 @@ def project_add_phase(request, id):
                                                          'project':project
         }, context_instance=RequestContext(request))
     else:
+        # Osetrenie desatinneho oddelovaca
+        request.POST['Price'] = str(request.POST['Price']).replace(',', '.')
         item = ProjectPhaseForm(request.POST).save(commit=False)
         item.Project = project
         item.Partner = project.ProjectClient
