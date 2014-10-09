@@ -157,7 +157,7 @@ def project_create(request):
         if form.is_valid():
             item = form.save()
             return HttpResponseRedirect(reverse(
-                'core.master.project.views.project_details',
+                'project_details',
                 args=(item.id,)))
 
 
