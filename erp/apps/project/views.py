@@ -154,7 +154,8 @@ def project_create(request):
                 })
     else:
         # Osetrenie desatinneho oddelovaca
-        request.POST['Price'] = str(request.POST['Price']).replace(',', '.')
+        # Netreba, osetruje to ajax validacia 
+        # request.POST['price'] = str(request.POST['price']).replace(',', '.')
         form = ProjectForm(request.POST)
         if form.is_valid():
             item = form.save()
