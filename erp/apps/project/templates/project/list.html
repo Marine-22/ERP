@@ -12,6 +12,7 @@
             <thead>
                 <tr>
                     <td>{% trans 'Project name' %}</td>
+                    <td>{% trans 'Project partner' %}</td>
                     <td>{% trans 'Project start' %}</td>
                     <td>{% trans 'Project end' %}</td>
                 </tr>
@@ -21,6 +22,9 @@
                 <tr>
                     <td>
                         <a href="{% url project_details project.id %}">{{ project.Name }}</a>
+                    </td>
+                    <td>
+                        {{ project.ProjectClient.PartnerName }}
                     </td>
                     <td>
                         {{ project.Start|date:'d.m.Y' }}
